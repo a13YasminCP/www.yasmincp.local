@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RANDOM NUMBER</title>
+</head>
+<body>
+	<h1>RANDOM NUMBER</h1>
+
+	<script>
+
+		var numAleatorio;
+		var numIntroducido;
+		var aciertos = 0;
+		var fallos = 0;
+		var veces = 5;
+
+
+		var numAleatorio = Math.floor(Math.random()*26);
+
+		document.write("aleatorio "+ numAleatorio + "<br>");
+
+		do{
+
+			numIntroducido = prompt("Please enter a number:");
+			if (numIntroducido!="")//intro
+			{
+				if(numIntroducido==numAleatorio)
+				{
+					alert("Correcto");
+					aciertos++;
+				}
+
+				else if (isNaN(numIntroducido))
+				{
+					alert("Introduce un numero");
+					fallos++;
+				}
+				else if(numIntroducido<numAleatorio)
+				{
+					alert("El numero aleatorio es mayor");
+					fallos++;
+				}
+				else if(numIntroducido>numAleatorio)
+				{
+					alert("El numero aleatorio es menor");
+					fallos++;
+				}
+
+
+			veces--;
+
+			}
+
+
+		}
+		while (veces > 0);
+
+		document.write("Numero de aciertos: "+ aciertos +"<br>");
+		document.write("Porcentaje de fallos: "+ ((fallos /5) * 100));
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

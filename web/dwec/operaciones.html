@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script>
+	/*
+	Realizar una pequeña aplicación en JavaScript que muestre lo siguiente:
+	Tabla de multiplicar del 7.
+	Tabla de sumar del 8.
+	Tabla de dividir del 9.
+	Utilizar los tres tipos de bucles que hay en JavaScript (para cada número, un tipo de bucle diferente).
+	Sabiendo que cuando desplazamos 1 bit a la derecha dividimos un entero por 2 y cuando lo desplazamos a la izquierda estamos multiplicando por 2.
+	Que tu aplicación también imprima el resultado de las siguientes operaciones empleando desplazamiento de bits:
+	125 / 8=
+	40 x 4=
+	25 / 2=
+	10 x 16=
+	*/
+	document.write("<h3>TABLA DE MULTIPLICAR DEL 7</h3>");
+	
+	var k=7;
+	for(k=0;k<=10;k++)
+	{
+		document.write("7 x"+k+" = "+(7*k)+"<br>");
+
+	}
+	
+	document.write("<h3>TABLA DE SUMAR DEL 8</h3>");
+	
+	var i=0;
+	do
+	{
+		document.write("8 +"+i+" = "+(8+i)+"<br>");
+
+	i++;
+	}while(i<10);
+
+	document.write("<h3>TABLA DE DIVIDIR DEL 9</h3>");
+
+	var z=0;
+	while (z<10)
+	{
+		document.write("9 /"+z+" = "+(9/z)+"<br>");
+		z++;
+	
+	}
+	document.write("<h3>DESPLAZAMIENTO DE BITS</h3>");
+	document.write("125 / 8 ="+(125>>3)+"<br>");
+	//2 elevado a 3 son 8 pero como estamos dividiendo ponemos el simbolo de dividir en desplazamiento de bits
+	document.write("40 x 4 ="+(40<<2)+"<br>");
+	document.write("25 / 2 ="+(25>>1)+"<br>");
+	document.write("10 x 16 ="+(10<<4)+"<br>");
+
+	</script>
+</body>
+</html>
