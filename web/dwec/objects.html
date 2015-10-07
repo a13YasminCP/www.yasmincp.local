@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!--Crear una página web con los siguientes requisitos:
+
+Mostrar el número de milisegundos desde las 00:00 01 de enero 2010 hasta el momento actual.
+Pida al usuario de una cadena y mostrar la longitud de la cadena solicitada.
+Obtener la altura y la anchura de la pantalla del usuario (http://www.w3schools.com/jsref/obj_screen.asp) e imprimir la diagonal = raíz cuadrada de la pantalla (anchura2 + talla2).
+Pida el número de DNI y letra y mostrar si el NIF es correcta o no. Información sobre cómo comprobar la NIF aquí: http://www.sabercurioso.es/2007/06/25/letra-nif/
+Cambiar el color del texto a blanco, fondo a gris y el título del documento a "Tarea 3.1 - Modelo de Objetos predefinidos".-->
+<script>
+
+ 
+var fechaActual = new Date();
+var fechaNueva = new Date("January 01, 2010 00:00:00");
+var msHastahoy = fechaActual.getTime();
+var msHasta2010 = fechaNueva.getTime();
+var msTotal = msHastahoy - msHasta2010;
+
+document.write("Desde el 1 de enero de 1970 hasta hoy han transcurrido " + msHastahoy + " milisegundos");
+document.write("<br/>");
+document.write("Desde el 1 de enero de 2010 hasta hoy han transcurrido " + msTotal + " milisegundos");
+
+
+var cadena=prompt("Escribe una cadena: ");
+document.write("<br />");
+document.write("La longitud de la cadena es: "+cadena.length+ "<br>");
+
+var ancho=screen.height;
+document.write("El ancho de la pantalla es: "+ancho+ "<br>");
+
+var altura=screen.width;
+document.write("El ancho de la pantalla es: "+altura+ "<br>");
+
+var diagonal= Math.sqrt(ancho*ancho + altura*altura);
+document.write("La diagonal de la pantalla es: "+diagonal+ "<br>");
+
+var letras= ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+
+var numero= prompt("Introduce tu DNI sin letra: ");
+var letra= prompt("Introduce tu letra del DNI en minusculas: ");
+
+letra = letra.toUpperCase();
+
+if (numero<0 || numero>99999999){
+
+	alert("El numero proporcionado no es valido");
+}
+else {
+
+  var letraCalculada = letras[numero % 23];
+  if(letraCalculada != letra) {
+    alert("La letra o el número proporcionados no son correctos");
+  }
+  else {
+    alert("El número de DNI y su letra son correctos");
+  }
+}
+
+
+
+
+</script>
+</body>
+</html>

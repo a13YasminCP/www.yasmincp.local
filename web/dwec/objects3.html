@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	</title>
+</head>
+<body>
+	<script>
+		var ventana = window.open("", "ventana", "resizable=no");
+		function nuevoTitulo()
+		{
+			ventana.document.write("<h3>Nueva ventana Ejemplo</h3>");
+			//Escriba la dirección URL completa: XXXXX
+			ventana.document.write(window.location+"<br>");
+			//Escribe el protocolo utilizado: XXXXX
+			ventana.document.write(location.protocol+"<br>");
+
+			//Escribe el nombre de código del explorador: XXXXX
+			ventana.document.write(navigator.appCodeName+"<br>");
+			//con appCodeName me aparece mozilla
+			ventana.document.write(navigator.vendor+"<br>");
+			//con vendor Google Inc.
+
+			//Compruebe si JAVA está disponible en la ventana del navegador y escribir el mensaje correspondiente:Java ES / NO disponibles en esta ventana
+			if(navigator.javaEnabled())
+			{
+			ventana.document.write("JAVA esta disponible");
+			}else
+			ventana.document.write("JAVA NO esta disponible");
+		}
+		nuevoTitulo();//hay que llamar a la funcion para que vaya
+
+	</script>			
+</body>		
+</html>
