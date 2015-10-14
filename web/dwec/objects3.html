@@ -27,9 +27,58 @@
 			ventana.document.write("JAVA esta disponible");
 			}else
 			ventana.document.write("JAVA NO esta disponible");
+			//Escribe en la ventana principal: <h1> TAREA DWEC03 </ h1> <hr />
+
 		}
 		nuevoTitulo();//hay que llamar a la funcion para que vaya
+		document.write("<h1> TAREA DWEC03 </h1>");
+		//Pop-up preguntando tu nombre
+		alert("POP UP!");
+		//Pop-up pidiendo al día (de su cumpleaños)
+		var dia= prompt("Dime el dia de tu cumpleaños: ");
+		//Pop-up pidiendo al mes (de su cumpleaños)
+		var mes = prompt("Dime el mes de tu cumpleaños: ");
+	    //Pop-up pidiendo al año (de su cumpleaños)
+	    var año=prompt("Dime el año de tu cumpleaños en: ","Año Completo");
+	    	año=parseInt(año);//aqui lo pasamos a un entero para poder restarlo abajo
+	
+	    //Imprimir la siguiente información:
+	    //Buenos días XXXXX
+	    var nombre=prompt("¿Cómo te llamas?");
+	    nombre=nombre.toLowerCase();//para que me coja la posicion tanto escrbiendo el nombre en mayusculas o minusculas y me lo escriba en mayusculas despues.
+	    document.write("Buenos dias, "+ nombre.toUpperCase()+"<br>");
+		//Su nombre es caracteres XX largo, incluidos los espacios.
+		document.write("Tu nombre tiene: "+ nombre.length +" letras"+"<br>");
+		//La primera letra "A" de su nombre está en la posición: X
+		document.write("La primera letra A de tu nombre esta en la posicion: "+ (nombre.indexOf("a")+1) +"<br>");
+		//La última letra "A" de su nombre está en la posición: X
+		document.write("La ultima letra A de tu nombre esta en la posicion: "+ (nombre.lastIndexOf("a")+1) +"<br>");
+		//Su nombre sin las primeras 3 letras es: XXXXXXXX
+		document.write("Tu nombre sin las primeras 3 letras es: "+ (nombre.substr(3))+"<br>");
+		//Su nombre en mayúsculas es: XXXXXXXX
+		 document.write("Tu nombre en mayúsculas es, "+ nombre.toUpperCase()+"<br>");
+		
+		//Su edad es: XX años de edad
+		var f=new Date().getFullYear();//aqui nos coge el año de ahora
+		var años = año-f;//resto la variable año q guarde
+		document.write("Tu edad es: "+(Math.abs(años))+" años"+"<br>");//me da un valor positivo de la resta
 
+
+		//Usted nació en un (nombre del día) de (nombre del mes) (año).
+		 var fecha = new Date(año+"-"+mes+"-"+dia);//coje todo lo q le meti
+	    document.write("Naciste el dia "+fecha.getDay()+"<br>");
+	    //domingo cero y sabado 6
+
+	    //creo el array para que me ponga el nombre del dia
+	    var meses=("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+	    var dias="Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+
+		//El coseno de 180 es: XXXXXXXXXX
+		document.write("El coseno de 180 es: "+Math.cos(180)+"<br>");
+		//El mayor número (34,67,23,75,35,19) es: XX
+		document.write("El numero más mayor es: "+Math.max(34,67,23,75,35,19) +"<br>");
+		//Ejemplo de números aleatorios: XXXXXXXXXX
+		document.write("Ejemplo de número aleatorio: "+Math.round(Math.random()));
 	</script>			
 </body>		
 </html>

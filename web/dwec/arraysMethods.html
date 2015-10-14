@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<h3>ARRAYS & METHODS</h3>
+	<script>
+
+	//Crear un array con 30 posiciones que contiene números aleatorios entre 0 y 20.
+	var array= new Array();
+
+	for(var i=0;i<30;i++){
+
+		array[i]=Math.round(Math.random()*20);
+	//Imprimir el array creado anteriormente.
+		document.write(array[i]+" , ");//para que me los ponga todos seguidos
+
+	}
+	document.write("<br>");
+	
+
+	//Crear un array con la siguiente información: Batman, Superman, Krusty, Bob, Mel y Barney.
+	var arrayDibus= new Array("Batman", "Superman", "Krusty", "Bob", "Mel" , "Barney");
+	for(var i=0;i<arrayDibus.length;i++){
+
+
+		document.write(arrayDibus[i]+" , ");//para que me los ponga todos seguidos
+
+
+	}
+	document.write("<br>");
+	
+
+	//Eliminar el último elemento dentro del array (use métodos de array ).
+	arrayDibus.splice(arrayDibus.length-1);
+
+	for(var i=0;i<arrayDibus.length;i++){
+
+
+		document.write(arrayDibus[i]+" , ");//para que me los ponga todos seguidos
+
+	}
+	document.write("<br>");
+
+	
+	//Imprimir la posición del array donde se encontró 'Superman' (use métodos de array para buscar el contenido).
+	document.write("Superman está en la posición: ");
+	document.write(arrayDibus.indexOf("Superman")+1);
+	document.write("<br>");
+	
+	
+	//Agregue los siguientes elementos al final del array: Carl, Lenny, Burns y Lisa (use métodos de array ).
+	arrayDibus.push("Carl", "Lenny", "Burns" ,"Lisa");
+
+	//y lo imprimo para verlo
+
+	for(var i=0;i<arrayDibus.length;i++){
+
+		
+		document.write(arrayDibus[i]+" , ");//para que me los ponga todos seguidos
+
+	}
+	document.write("<br>");
+
+	
+	//Ordenar los elementos del array e imprimir el array ordenado (use métodos de array ).
+	arrayDibus.sort();
+
+	//y lo imprimo para verlo
+
+	for(var i=0;i<arrayDibus.length;i++){
+
+		
+		document.write(arrayDibus[i]+" , ");//para que me los ponga todos seguidos
+
+	}
+	document.write("<br>");
+	
+
+	//Eliminar de la posición número 4, 2 elementos, incluyendo el cuarto elemento. (use métodos de array ).
+	arrayDibus.splice(4,2);
+
+	//y lo imprimo para verlo
+
+	for(var i=0;i<arrayDibus.length;i++){
+
+		
+		document.write(arrayDibus[i]+" , ");//para que me los ponga todos seguidos
+
+	}
+	document.write("<br>");//me borra krusty y lenny
+
+	
+	//Añadir estos elementos al array (en la posición de inicio): Manzana, Melón, Sandía (use métodos de array ).
+	arrayDibus.unshift("Manzana", "Melón", "Sandía");
+
+	//y lo imprimo para verlo
+
+	for(var i=0;i<arrayDibus.length;i++){
+
+		
+		document.write(arrayDibus[i]+" , ");//para que me los ponga todos seguidos
+
+	}
+	document.write("<br>");//vemos que me los copio al ppio
+
+
+	//Crear una copia del array con el nombre micopia y que contenga los elementos de tercero a quinto (use métodos de array ).
+	var miCopia= arrayDibus.slice(3,5);//del tercero al quinto el sexto no se incluye
+	
+	//y lo imprimo para verlo
+	for(var i=0;i<miCopia.length;i++){
+
+		
+		document.write(miCopia[i]+" , ");//para que me los ponga todos seguidos
+
+	}
+	document.write("<br>");//vemos que me los copio al ppio
+
+	//Añadir el elemento "Monitor" al final del array (use métodos de array ).
+	miCopia.push("Monitor");
+
+	//y lo imprimo para verlo
+	for(var i=0;i<miCopia.length;i++){
+
+		
+		document.write(miCopia[i]+" , ");//para que me los ponga todos seguidos
+
+	}
+	document.write("<br>");//vemos que me los copio al ppio
+
+	//Crear un nuevo array que contiene el primer array y "micopia" concatenados. Nombre del nuevo array como Tercero (use métodos de array ).
+	var tercero= arrayDibus.concat(miCopia);
+
+	//y lo imprimo para verlo
+	for(var i=0;i<tercero.length;i++){
+
+		
+		document.write(tercero[i]+" , ");//para que me los ponga todos seguidos
+
+	}
+	document.write("<br>");//vemos que me los copio al ppio
+
+
+</script>
+</body>
+</html>

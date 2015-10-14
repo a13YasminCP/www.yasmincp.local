@@ -1,35 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--
+We have the following information:  City, Country, Continent saved in one string
+
+$information="Tokyo,Japan,Asia;Mexico City,Mexico,North America;New York City,USA,North America;Mumbai,India,Asia;
+Seoul,Korea,Asia;Shanghai,China,Asia;Lagos,Nigeria,Africa;Buenos Aires,Argentina,South America;Cairo,Egypt,Africa;London,UK,Europe"
+
+Create a PHP application to print in a table all the information from the string with the colums City, Country and Continent.
+
+Feedback comments	
+Tu programa genera un bucle infinito.!!!!!!!!!!!!!!!!!!!!
+-->
+<html>
 <head>
-   <meta charset="UTF-8">
-   <title></title>
+	<meta charset="UTF-8">
+	<title></title>
 </head>
 <body>
-   <h3>ARRAYS AND STRINGS</h3>
-   <?php
+	<table style='width:25%' align="center">
+		<tr>
+			<td><b>City</b></td> 
+			<td><b>Country</b></td>
+			<td><b>Continent</b></td>
+		</tr>
+		<?php
+		$information = "Tokyo,Japan,Asia;Mexico City,Mexico,North America;New York City,USA,North America;Mumbai,India,Asia;Seoul,Korea,Asia;Shanghai,China,Asia;Lagos,Nigeria,Africa;Buenos Aires,Argentina,South America;Cairo,Egypt,Africa;London,UK,Europe";
 
-   /*
-	Crear una aplicación PHP para imprimir en una tabla toda la información proporcionada por la cadena usando las columnas: en la ciudad, país y continente.
-   */
+		$newinfo = explode(';', $information);//para separar x los PUNTOS Y COMAS
 
-//tengo q convertir este string en un array para poder recorrerlo y separarlo 
-	
-   	$information="Tokyo,Japan,Asia;Mexico City,Mexico,North America;New York City,USA,North America;Mumbai,India,Asia;Seoul,Korea,Asia;Shanghai,China,Asia;Lagos,Nigeria,Africa;Buenos Aires,Argentina,South America;Cairo,Egypt,Africa;London,UK,Europe";
+		echo "<tr>";
+		for ($i = 0; $i <count($newinfo); $i++) {
 
-	$array = explode(";", $information);//lo separo
+			$celdas = explode(',', $newinfo[$i]);//para separar x las COMAS
 
-
-//la longitud del array es con count
-//lo recorro
-
-	for($i=0;$i<count($array);$i++)
-	   {
-	 		echo <td><tr>$array[$i]</tr></td>."<br>";//para acceder a cada posicion del array[$i]
-
-	   } 
-	
+			for ($e=0; $e <count($celdas);$e++)
+			{
+				echo "<td>{$celdas[$e]}</td>";//td tokio/td japon/td asia//para separar
+			}
+			echo "<tr>";
 
 
-   ?>
+		}
+		?>
+	</table>
+
 </body>
 </html>
