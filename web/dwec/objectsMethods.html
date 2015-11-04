@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<h2>TRABAJANDO CON OBJETOS EN JAVASCRIPT</h2>
+	<script>
+
+    //PRIMERA PARTE
+	//aqui definimos el objeto
+	function Edificio(calle, numero, codigo)
+	{
+		// Propiedades
+		this.calle=calle;
+		this.numero=numero;
+		this.codigo=codigo;
+		this.plantas = new Array();
+		
+		document.write("- Construido nuevo edificio en calle: "+this.calle+" ,nº:"+this.numero+" ,CP:"+this.codigo+"<br>");
+
+	//-------------------------------------------
+
+	   //SEGUNDA PARTE
+		//para meterle el codigo postal solo
+		this.getCodigo=function()
+		{
+			return this.codigo;
+		}
+			//set para modficiar y el get para imprimir
+	
+		//aqui le meto la calle
+		this.getCalle=function()
+		{
+			return this.calle;
+		}
+		//le meto la calle
+		this.getNumero=function()
+		{
+			return this.numero;
+		}
+
+		//LOS SET NO LOS ESTOY UTILIZANDO EN EL EJERCICIO
+		//SOLO SI MODIFICIO CON EL SET LOS UTILIZO PERO AQUI NO ESTOY MODIFICANDO NADA SOLO COGIENDO EL NUMERO Q YA TIENE
+
+		this.setCodigo=function(nuevoCodigo)
+		{
+			this.codigo=nuevoCodigo;
+		}
+		this.setCalle=function(nuevaCalle)
+		{
+			this.calle=nuevaCalle;
+		}
+
+		this.setNumero=function(nuevoNumero)
+		{
+			this.numero=nuevoNumero;
+		}
+
+		//TERCERA PARTE
+
+		 this.agregarPlantasYPuertas = function (numplantas, puertas)
+	    {
+	        if (this.plantas.length == 0)//aqui comprueba si ya he metido datos,si esta vacio si no hay plantas(empezamos dsde cero)
+	        {
+	            for (var i = 0; i < numplantas; i++)//CREO EL ARRAY Y LE METO LAS PLANTAS DE ABAJO 2PLANTAS  Y 3 PUERTAS
+	            {
+	                this.plantas[i] = new Array(puertas);
+					//ESTE FOR ES PARA LAS PLANTAS
+					//EN LAS DOS PLANTAS ME METE TRES PUERTAS
+					//creo un array de puertas q le he pasado(dos plantas y tres puertas x cada planta entonces estoy costruyendo un array 2x3
+	                //por cada planta creo 3 puertas
+	                for(var j = 0; j < puertas; j++)//aqui creamos las puertas con contenido vacio para q no me de problemas
+	                {//ESTE FOR ES PARA LAS PUERTAS
+	                // creamos propietarios vacios en esa planta
+	                    this.plantas[i][j] = "";
+	                }
+	            }
+	        }
+	        else//LE SUMO LAS PLANTAS Q YA TIENE A LAS Q LE ESTOY METIENDO
+	        {
+	            var alturaEdificio = this.plantas.length;//en caso d q tenga mas plantas metidas,
+	            //me suma a la altura del edificio mas plantas
+
+	            //AQUI LE SUMO
+				for (var i = alturaEdificio; i < alturaEdificio + numplantas; i++)//alturaEdificio + numplantas= a la altura q le voy a añadir
+	            {
+	                this.plantas[i] = new Array(puertas);
+	                for(var j = 0; j < puertas; j++)//al ser plantas nuevas q le estoy añadiendo puedo empezar dsde cero
+	                {
+	                // creamos propietarios vacios en esa planta
+	                    this.plantas[i][j] = "";
+	                }
+	            }
+	        }
+    	}
+
+    	//CUARTA PARTE
+    	//agregarPropietario(nombre,planta,puerta) // Se le pasa un nombre de propietario, un número de planta y un número de puerta y lo asignará como propietario de ese piso.
+        this.agregarPropietario = function (nombre, planta, puerta)//nombre del propietario "(nombre,i,j)"
+        {
+            this.plantas[planta-1][puerta-1] = nombre;// i= planta1, j= puerta1,(cuando agrego resto para seguir la posicion del array
+            document.write("<br>"+"- "+nombre +" es ahora el propietario de la puerta  " + puerta + " de la planta "+ planta);    
+           
+        }
+
+        //QUINTA PARTE
+        //• imprimePlantas // Recorrerá el edificio e imprimirá todos los propietarios de cada puerta.
+                this.imprimePlantas = function ()
+                {
+                    for(var i =0; i < this.plantas.length; i++)
+                    {
+                       //sumamos uno para cuando imprima me salga la posicion q quiero(pq le he restado arriba y tengo q sumarle uno abjo) 
+                        for(var j = 0; j < this.plantas[i].length; j++)
+                        {
+                          document.write("Propietario del piso "+ (j+1) +" de la planta " + (i+1)+ ": "+ this.plantas[i][j] +"<br>");
+                        }
+                    }
+                }          
+
+	}
+	//y aqui lo creamos y le metemos las caracteristicas
+
+	//PRIMERA PARTE--> PARA QUE ME IMPRIMA LOS PRIMEROS DATOS DEL EJERCICIO
+
+	document.write("Instanciamos 3 objetos edificioA, edificioB y edificioC con estos datos: "+"<br>");
+	var edificioA=new Edificio("Garcia Prieto",58,15706);
+	var edificioB=new Edificio("Camino Caneiro",29,32004);
+	var edificioC=new Edificio("San Clemente","s/n",15705);
+
+	//------------------------------------------------------
+
+	//SEGUNDA PARTE
+
+	//con el get me coge el dato
+	//con el set lo cambio
+	//para utilizacion del SET
+	//edificioB.setNumero(4);
+	//edificioC.setNumero(edificioA.getNumero());
+
+	document.write("<br>");
+	//esto es lo q hace q me devuelva el codigo postal q le meti arriba
+
+	//IMPRIME CALLE NUMERO Y CODIGO POSTAL GRACIAS AL GET DE ARRIBA
+	document.write("El codigo postal del edificio A es: "+edificioA.getCodigo());
+	document.write("<br>");
+	document.write("La calle del edificio C es: "+edificioC.getCalle());
+	document.write("<br>");
+	document.write("El edificio B está situado en la calle: "+edificioB.getCalle()+", numero "+edificioB.getNumero());
+
+	//para utilizacion del SET
+	//document.write("<br>");
+	//document.write("El edificio C está situado en la calle: "+edificioB.getCalle()+", numero "+edificioC.getNumero());
+	document.write("<br>");
+	
+    //TERCERA PARTE
+    //Agregamos 2 plantas y 3 puertas por planta al edificio A...
+    document.write("<br>");
+    edificioA.agregarPlantasYPuertas(2, 3);
+    document.write("Agregamos 2 plantas y 3 puertas por planta al edificio A...");
+    document.write("<br>");
+
+     //CUARTA PARTE
+    document.write("Agregamos 4 propietarios al edificio A...");
+    //Agregamos 4 propietarios al edificio A...
+	//- Jose Antonio Lopez es ahora el propietario de la puerta 1 de la planta 1
+    edificioA.agregarPropietario("Jose Antonio Lopez", 1, 1);
+    //- Luisa Martinez es ahora el propietario de la puerta 2 de la planta 1
+    edificioA.agregarPropietario("Luisa Martinez", 1, 2);
+    //- Marta Castellón es ahora el propietario de la puerta 3 de la planta 1
+    edificioA.agregarPropietario("Marta Castellon", 1, 3);
+	//- Antonio Pereira es ahora el propietario de la puerta 2 de la planta 2
+    edificioA.agregarPropietario("Antonio Pereira", 2, 2);
+
+     //QUINTA PARTE
+	document.write("<h2>Listado de propietarios del edificio calle García Prieto número 58</h2>");
+    //• Cada vez que se añada un propietario a un piso de un edificio que muestre un mensaje del estilo:– xxxxxxxx es ahora el propietario de la puerta x de la planta x.    
+           
+	//Agregamos 1 planta más al edificio A...
+    edificioA.agregarPlantasYPuertas(1, 3);
+	//Agregamos 1 propietario más al edificio A planta 3, puerta 2...
+	//- Pedro Meijide es ahora el propietario de la puerta 2 de la planta 3
+   
+    document.write("<br>");
+    edificioA.imprimePlantas();
+    document.write("<br>");
+    document.write("Agregamos 1 planta más al edificio A...");
+    document.write("<br>");
+    document.write("Agregamos 1 propietario más al edificio A planta 3, puerta 2...");
+    edificioA.agregarPropietario("Pedro Mejide", 2, 3);
+
+    document.write("<h2>Listado de propietarios del edificio calle García Prieto número 58</h2>");
+
+    edificioA.imprimePlantas();
+
+console.log(edificioA);
+	
+
+</script>
+</body>
+</html>
